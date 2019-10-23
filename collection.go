@@ -18,8 +18,8 @@ var (
 )
 
 type Collection struct {
-	Nodes map[string]*Node             `bson: "nodes"`
-	M     map[string]map[string]string `bson: "m"` //M[nodeA][slt] -> nodeB
+	Nodes map[string]*Node             `bson:"nodes"`
+	M     map[string]map[string]string `bson:"m"` //M[nodeA][slt] -> nodeB
 	Used  map[string]bool
 }
 

@@ -11,9 +11,9 @@ import (
 )
 
 type Node struct {
-	Name   string            `bson: "name"`
-	Para   []string          `bson: "para"`
-	Select map[string]string `bson: "select"` //name: used to choose next node value: select placeholder
+	Name   string            `bson:"name"`
+	Para   []string          `bson:"para"`
+	Select map[string]string `bson:"select"` //name: used to choose next node value: select placeholder
 }
 
 var (

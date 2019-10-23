@@ -1,37 +1,30 @@
 package textread
 
 import (
-	"bufio"
 	"fmt"
-	"os"
 	"testing"
 )
 
-type Novel struct {
-	C     *Collection `bson: "collection"`
-	Title string      `bson: "title"`
-}
-
 func TestScanCollectionFile(t *testing.T) {
-	file, err := os.Open("novel.tr")
-	if err != nil {
-		t.Error(err)
-	}
-	reader := bufio.NewReader(file)
-	nodes, err := ScanReader(reader)
-	if err != nil {
-		t.Log(err)
-	}
-	c, err := ScanCollectionFile("novel.trg", nodes)
-	if err != nil {
-		t.Log(err)
-	}
+	// file, err := os.Open("novel.tr")
+	// if err != nil {
+	// 	t.Error(err)
+	// }
+	// reader := bufio.NewReader(file)
+	// nodes, err := ScanReader(reader)
+	// if err != nil {
+	// 	t.Log(err)
+	// }
+	// c, err := ScanCollectionFile("novel.trg", nodes)
+	// if err != nil {
+	// 	t.Log(err)
+	// }
 	// t.Logf("%#v", c)
 
 	cc, cl := C("nodes")
 	defer cl()
 	// var m *manager
-	cc.Insert(&Novel{c, "test"})
+	// cc.Insert(&Novel{c, "test"})
 	// cc.Find(nil).One(&m)
 	var n Novel
 	cc.Find(nil).One(&n)
