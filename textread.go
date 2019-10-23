@@ -16,6 +16,9 @@ type Novel struct {
 }
 
 func Textread(fileprefix string) (*Novel, error) {
+	if fileprefix == "" {
+		return nil, fmt.Errorf("Err filename is null.")
+	}
 	//need to check file
 	fileprefix = strings.TrimSpace(fileprefix)
 	nodes, err := ScanFile(fileprefix + SUF_TXT)
