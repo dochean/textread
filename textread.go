@@ -23,11 +23,11 @@ func Textread(fileprefix string) (*Novel, error) {
 	fileprefix = strings.TrimSpace(fileprefix)
 	nodes, err := ScanFile(fileprefix + SUF_TXT)
 	if err != nil {
-		return nil, fmt.Errorf("Err when scan txt file.")
+		return nil, fmt.Errorf("Err when scan txt file [%s].", err)
 	}
 	co, err := ScanCollectionFile(fileprefix+SUF_GPH, nodes)
 	if err != nil {
-		return nil, fmt.Errorf("Err when scan graph file.")
+		return nil, fmt.Errorf("Err when scan graph file [%s].", err)
 	}
 
 	return &Novel{co, fileprefix}, nil

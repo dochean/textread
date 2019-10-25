@@ -10,7 +10,7 @@ import (
 
 var (
 	session *mgo.Session
-	url     = "localhost:27017"
+	url     = "mongo:27017"
 	dbname  = "text"
 	cname   = "nodes"
 )
@@ -62,6 +62,10 @@ func List() []*Novellist {
 		return nil
 	}
 	return list
+}
+
+func GetByString(id string) *Novel {
+	return GetById(bson.ObjectIdHex(id))
 }
 
 func GetById(id bson.ObjectId) *Novel {
