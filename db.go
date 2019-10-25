@@ -19,7 +19,7 @@ func init() {
 	var err error
 	session, err = mgo.Dial(url)
 	if err != nil {
-		log.Fatalf("Err connect to mongo: %s", err)
+		log.Fatalf("Err connect to mongo[%s]: %s", url, err)
 	}
 	// db = session.DB(dbname)
 }
